@@ -1,0 +1,37 @@
+library(shiny)
+library(tidyverse)
+
+# Define UI for application
+ui <- fluidPage(
+  titlePanel("Next Word Predictor"),
+  sidebarLayout(
+    sidebarPanel(
+      textInput("text", "Enter a phrase:", ""),
+      actionButton("predictButton", "Predict Next Word")
+    ),
+    mainPanel(
+      textOutput("prediction")
+    )
+  )
+)
+
+# Placeholder prediction function (replace with your actual prediction logic)
+predict_next_word <- function(input_text) {
+  # Implement your prediction algorithm here
+  # For example, using n-gram model
+  return("example")  # Replace with actual predicted word
+}
+
+# Define server logic
+server <- function(input, output) {
+  observeEvent(input$predictButton, {
+    output$prediction <- renderText({
+      req(input$text)
+      predicted_word <- predict_next_word(input$text)
+      paste("Next word prediction:", predicted_word)
+    })
+  })
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
