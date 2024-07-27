@@ -1,3 +1,4 @@
+## use this url to access the app: https://doctahmanhattan.shinyapps.io/Next_Word_Predictor/ ##
 library(shiny)
 library(tidyverse)
 
